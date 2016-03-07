@@ -22,7 +22,13 @@ Installation
 Configuration
 -------------
 
-- etc/queue.ini
+- etc/complaints_queue.ini
+
+
+Start / Stop
+------------
+
+    $ bin/complaints_init.sh start|stop|restart
 
 
 Copyright
