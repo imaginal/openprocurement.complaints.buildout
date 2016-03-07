@@ -1,0 +1,32 @@
+OpenProcurement complaints buildout
+===================================
+
+This software sync tender complaints with mysql backend
+
+
+Requirements
+------------
+
+- python 2.7
+- MySQLdb
+
+
+Installation
+------------
+
+    $ cd openprocurement.complaints.buildout
+    $ python bootstrap.py
+    $ bin/buildout
+
+
+Configuration
+-------------
+
+- etc/queue.ini
+
+
+Copyright
+---------
+
+- See AUTHORS file
+
