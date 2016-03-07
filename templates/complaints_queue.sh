@@ -1,6 +1,9 @@
 #!/bin/sh
 
 BASEDIR=${buildout:directory}
+PIDFILE=$BASEDIR/var/complaints_safe.pid
+echo $$ >$PIDFILE
+trap "{ rm -f $PIDFILE; exit; }" SIGTERM
 
 while true
 do
