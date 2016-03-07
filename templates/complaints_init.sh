@@ -3,10 +3,11 @@
 BASEDIR=${buildout:directory}
 ANGELSH=$BASEDIR/bin/complaints_angel.sh
 PIDFILE=$BASEDIR/var/complaints_angel.pid
+INIFILE=$BASEDIR/etc/complaints_queue.ini
 
 angel_alive()
 {
-  if [ -f $PIDFILE ] ; then
+  if [ -s $PIDFILE ] ; then
     if ps ax | grep `cat $PIDFILE` | grep complaints ; then
 	  return 0
     fi
@@ -27,7 +28,9 @@ angel_start()
 
 angel_stop()
 {
-  test -f $PIDFILE && kill `cat $PIDFILE`
+  PIDCHLD=`grep pidfile $INIFILE | cut -d= -f2`
+  test -s $PIDCHLD && kill `cat $PIDCHLD`
+  test -s $PIDFILE && kill `cat $PIDFILE`
 }
 
 angel_restart()
