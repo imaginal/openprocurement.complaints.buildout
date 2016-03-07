@@ -9,7 +9,7 @@ angel_alive()
 {
   if [ -s $PIDFILE ] ; then
     if ps ax | grep `cat $PIDFILE` | grep complaints ; then
-	  return 0
+      return 0
     fi
   fi
   return 1
@@ -19,7 +19,7 @@ angel_start()
 {
   if angel_alive ; then
     echo Pidfile $PIDFILE exists and service is runnning
-	exit 1
+    exit 1
   fi
   cd $BASEDIR/var
   nohup $ANGELSH &
@@ -43,17 +43,17 @@ angel_restart()
 angel_status()
 {
   if angel_alive ; then
-	echo "alive"
+    echo "alive"
   else
-	echo "dead"
+    echo "dead"
   fi
 }
 
 case "$1" in
-	start) angel_start ;;
-	stop) angel_stop ;;
-	restart) angel_restart ;;
-	status) angel_status ;;
-    *) echo "Usage: $0 {start|stop|restart|status}" 1>&2 ;;
+  start) angel_start ;;
+  stop) angel_stop ;;
+  restart) angel_restart ;;
+  status) angel_status ;;
+  *) echo "Usage: $0 {start|stop|restart|status}" 1>&2 ;;
 esac
 
