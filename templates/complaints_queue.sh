@@ -1,7 +1,7 @@
 #!/bin/sh
 
 BASEDIR=${buildout:directory}
-PIDFILE=$BASEDIR/var/complaints_safe.pid
+PIDFILE=$BASEDIR/var/complaints_angel.pid
 echo $$ >$PIDFILE
 trap "{ rm -f $PIDFILE; exit; }" SIGTERM
 
