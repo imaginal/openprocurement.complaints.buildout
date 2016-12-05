@@ -1,0 +1,55 @@
+#!/bin/sh
+#
+# complaints-queue
+# chkconfig: 2345 80 10
+# pidfile: /run/complaints-queue.pid
+#
+### BEGIN INIT INFO
+# Provides:           complaints-queue
+# Required-Start:     $network $remote_fs $time $syslog
+# Required-Stop:      $network $remote_fs $time $syslog
+# Default-Start:      2 3 4 5
+# Default-Stop:       0 1 6
+# Short-Description:  Prozorro Complaints to MySQL sync daemon
+# Description:        Privides complaints brige for prozorro
+### END INIT INFO
+#
+# Author: Volodymyr Flonts <flyonts@gmail.com>
+#
+
+#set -e
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+DAEMON=/opt/complaints-queue/bin/complaintsd
+PIDFILE=/run/complaints-queue.pid
+
+test -x $DAEMON || exit 0
+
+. /lib/lsb/init-functions
+
+case "$1" in
+  start)
+    log_daemon_msg "Starting complaints sync daemon" "complaints-queue"
+    start_daemon -p $PIDFILE $DAEMON -- -d -p $PIDFILE
+    log_end_msg $?
+    ;;
+  stop)
+    log_daemon_msg "Stopping complaints sync daemon" "complaints-queue"
+    killproc -p $PIDFILE $DAEMON
+    log_end_msg $?
+    ;;
+  force-reload|restart)
+    $0 stop
+    sleep 2
+    $0 start
+    ;;
+  stat*)
+    status_of_proc -p $PIDFILE $DAEMON complaints-queue && exit 0 || exit $?
+    ;;
+  *)
+    echo "Usage: /etc/init.d/complaints-queue {start|stop|restart|force-reload|status}"
+    exit 1
+    ;;
+esac
+
+exit 0

@@ -1,0 +1,14 @@
+/opt/complaints-queue/var/log/*.log
+/var/log/complaints-queue/*.log
+{
+    weekly
+    rotate 52
+    missingok
+    notifempty
+    delaycompress
+    compress
+    nocreate
+    postrotate
+        invoke-rc.d complaints-queue restart >/dev/null 2>&1 || true
+    endscript
+}
