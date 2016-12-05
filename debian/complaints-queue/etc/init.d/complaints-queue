@@ -21,6 +21,7 @@
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DAEMON=/opt/complaints-queue/bin/complaintsd
+INIFILE=/etc/complaints-queue/complaints.ini
 PIDFILE=/run/complaints-queue.pid
 
 test -x $DAEMON || exit 0
@@ -30,7 +31,7 @@ test -x $DAEMON || exit 0
 case "$1" in
   start)
     log_daemon_msg "Starting complaints sync daemon" "complaints-queue"
-    start_daemon -p $PIDFILE $DAEMON -- -d -p $PIDFILE
+    start_daemon -p $PIDFILE $DAEMON -- -d -p $PIDFILE $INIFILE
     log_end_msg $?
     ;;
   stop)
