@@ -31,7 +31,7 @@ test -x $DAEMON || exit 0
 case "$1" in
   start)
     log_daemon_msg "Starting complaints sync daemon" "complaints-queue"
-    start_daemon -p $PIDFILE $DAEMON -- -d -p $PIDFILE $INIFILE
+    start_daemon -p $PIDFILE $DAEMON -d -p $PIDFILE $INIFILE
     log_end_msg $?
     ;;
   stop)
