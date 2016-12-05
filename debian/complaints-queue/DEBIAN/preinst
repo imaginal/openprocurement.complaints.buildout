@@ -1,0 +1,9 @@
+#!/bin/sh
+
+NAME=complaints-queue
+
+if [ -x /etc/init.d/$NAME ] ; then
+  /etc/init.d/$NAME stop
+  sleep 1
+fi
+

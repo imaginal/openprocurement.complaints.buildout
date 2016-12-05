@@ -1,0 +1,17 @@
+#!/bin/sh
+
+NAME=complaints-queue
+HOME=/opt/$NAME
+
+for DIR in $HOME/var $HOME/var/log $HOME/var/run /var/log/$NAME ; do
+  mkdir -p $DIR
+done
+
+if [ -x /usr/sbin/update-rc.d ] ; then
+  /usr/sbin/update-rc.d $NAME defaults
+  /usr/sbin/update-rc.d $NAME enable
+fi
+
+if [ -x /bin/systemctl ] ; then
+  /bin/systemctl daemon-reload
+fi

@@ -1,0 +1,2 @@
+/etc/complaints-queue/complaints.ini
+/etc/logrotate.d/complaints-queue

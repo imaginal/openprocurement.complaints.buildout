@@ -1,0 +1,61 @@
+complaints-queue (0.5-6) stable; urgency=low
+
+ * Add allow_rewind options and fast rewind on start
+ * Clear cache only on weekend
+ * Limit rewind loop and update watchdog inside rewind
+
+ -- Volodymyr Flonts <flyonts@gmail.com>  Sun Oct  2 06:45:25 EEST 2016
+
+complaints-queue (0.5-4) stable; urgency=low
+
+ * Merge changelog 0.5-1 to 0.5-4
+ * Add tenders cache table and use_cache option
+ * Change need_reindex condition
+ * Update openprocurement_client
+ * Update cron.daily restart condition
+ * Add Watchdog based on signal.alarm
+ * Improve socket.timeout handling
+ * Change client options, add mode and feed
+
+ -- Volodymyr Flonts <flyonts@gmail.com>  Tue Sep 12 23:25:54 EEST 2016
+
+complaints-queue (0.4-2) stable; urgency=low
+
+ * Ignore complaints w/o dateSubmitted (ie drafts)
+
+ -- Volodymyr Flonts <flyonts@gmail.com>  Thu Aug 11 17:38:54 EEST 2016
+
+complaints-queue (0.4-1) stable; urgency=low
+
+ * Update table structure, add cancellation_json
+ * Ignore records by complaint.status == 'draft'
+ * Cancel tender in MySQL table by relatedLot.status
+ * Don't update canceled tenders
+
+ -- Volodymyr Flonts <flyonts@gmail.com>  Wed Aug  3 12:31:29 EEST 2016
+
+complaints-queue (0.3-1) stable; urgency=low
+
+ * if complaint.type == "claim" don't store it
+
+ -- Volodymyr Flonts <flyonts@gmail.com>  Tue Jul 12 02:44:23 EEST 2016
+
+complaints-queue (0.2-2) stable; urgency=low
+
+ * Add DEBIAN/conffiles
+
+ -- Volodymyr Flonts <flyonts@gmail.com>  Thu Jun 16 12:48:47 EEST 2016
+
+complaints-queue (0.2-1) stable; urgency=low
+
+ * Add configurable sleep option to client section
+ * Ignore offset from database if it less then skip_until in config
+ * Change json row from blob to longblob
+
+ -- Volodymyr Flonts <flyonts@gmail.com>  Wed Jun 15 23:18:36 EEST 2016
+
+complaints-queue (0.1-1) stable; urgency=low
+
+ * Initial release
+
+ -- Volodymyr Flonts <flyonts@gmail.com>  Thu Jun  9 18:38:37 EEST 2016

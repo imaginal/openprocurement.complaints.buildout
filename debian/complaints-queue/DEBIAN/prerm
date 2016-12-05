@@ -1,0 +1,17 @@
+#!/bin/sh
+
+NAME=complaints-queue
+HOME=/opt/$NAME
+
+if [ -x /etc/init.d/$NAME ] ; then
+  /etc/init.d/$NAME stop
+  sleep 1
+fi
+
+if [ -x /usr/sbin/update-rc.d ] ; then
+  /usr/sbin/update-rc.d -f $NAME remove
+fi
+
+if [ -d $HOME ] ; then
+  find $HOME -name \*.pyc -name \*.pyo -name \*.pid -delete
+fi

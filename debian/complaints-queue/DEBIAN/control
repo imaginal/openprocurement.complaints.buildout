@@ -1,0 +1,8 @@
+Package: complaints-queue
+Version: 0.6a1~ubuntu16
+Section: base
+Priority: optional
+Architecture: amd64
+Depends: python (>= 2.7), libmysqlclient18 (>= 5.5)
+Maintainer: Volodymyr Flonts <flyonts@gmail.com>
+Description: OpenProcurement Complaints Queue
