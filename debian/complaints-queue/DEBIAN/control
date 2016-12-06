@@ -1,5 +1,5 @@
 Package: complaints-queue
-Version: 0.6a2~ubuntu16
+Version: 0.6a3~ubuntu16
 Section: base
 Priority: optional
 Architecture: amd64
