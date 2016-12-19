@@ -1,3 +1,23 @@
+complaints-queue (0.6) stable; urgency=low
+
+ * Limit complaint json size due mysql.max_packet limit
+ * Upgrade buildout with debian scripts
+ * Change exit by signal behavior
+ * Update skip_until offset on each client reset
+ * New safe truncate cache
+ * Log last processed tener
+ * Add config option drop_cache
+
+ -- Volodymyr Flonts <flyonts@gmail.com>  Mon Dec 19 19:04:24 EET 2016
+
+complaints-queue (0.6-aplha1) stable; urgency=low
+
+ * New mode: Master watcher with two workers
+ * Change reindex condition, now configurable
+ * Don't clear cahe in handle_error
+
+ -- Volodymyr Flonts <flyonts@gmail.com>  Mon Dec  5 05:10:30 EET 2016
+
 complaints-queue (0.5-6) stable; urgency=low
 
  * Add allow_rewind options and fast rewind on start
