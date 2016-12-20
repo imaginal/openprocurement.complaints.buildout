@@ -1,3 +1,9 @@
+complaints-queue (0.6.1) stable; urgency=low
+
+ * Add configurable user_agent
+
+ -- Volodymyr Flonts <flyonts@gmail.com>  Tue Dec 20 14:05:03 EET 2016
+
 complaints-queue (0.6) stable; urgency=low
 
  * Limit complaint json size due mysql.max_packet limit
