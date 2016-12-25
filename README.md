@@ -19,15 +19,18 @@ This software sync tender complaints with mysql backend
 
 ### Configuration
 
-- etc/complaints_queue.ini
+- etc/complaints.ini
 
 
 ### Start / Stop
 
-    $ bin/complaints_init.sh start|stop|restart
+    $ bin/complaintsd etc/complaints.ini 
 
+or
+
+    # /etc/init.d/complaints-queue {start|stop|restart|force-reload|status}
 
 ### Copyright
 
-- See AUTHORS file
+- Volodymyr Flonts <flyonts@gmail.com> E-DEMOCRACY NGO
 
